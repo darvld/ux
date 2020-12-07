@@ -1,5 +1,8 @@
 # ux
-Kotlin bindings for GTK+
+Kotlin/Native multiplatform UI framework based on GTK+ bindings
+
+### Note
+This project contains more than just GTK Cinterop bindings: it adds some Kotlin-style functionality to some tedious parts of GTK (like doing some work in the background while updating the UI or using ListStore and TreeStore). If you're only looking for basic bindigs with type-safe builders, take a look at [these](https://github.com/kropp/kotlin-native-gtk), they were developed by a member of the JetBrains team, and are pretty complete.
 
 ## Current status
 This repository represents a work in progress, releases are still a little ways down the road since most of the code is uncommented and untested. Collaboration in these regards will be highly appreciated.
