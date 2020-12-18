@@ -11,7 +11,7 @@ import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.reinterpret
 
 public open class ToggleButton internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Button(pointer) {
     public constructor(label: String? = null) : this(gtk_toggle_button_new_with_label(label)!!)
 

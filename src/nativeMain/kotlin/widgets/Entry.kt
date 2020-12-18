@@ -13,7 +13,7 @@ import kotlinx.cinterop.toKString
 
 
 public class Entry(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Widget(pointer) {
     public constructor() : this(gtk_entry_new()!!)
     public constructor(buffer: EntryBuffer) : this(gtk_entry_new_with_buffer(buffer.self)!!)

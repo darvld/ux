@@ -14,7 +14,7 @@ repositories {
 kotlin {
     explicitApi()
 
-    mingwX64("native"){
+    mingwX64("native") {
         compilations.getByName("main").cinterops.create("libgtk")
         mavenPublication {
             artifactId = "ux"

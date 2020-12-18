@@ -8,7 +8,7 @@ import libgtk.*
 
 
 public open class TextView internal constructor(
-    pointer: CPointer<GtkWidget>,
+    pointer: WidgetPtr,
     public val buffer: TextBuffer = TextBuffer(gtk_text_view_get_buffer(pointer.reinterpret())!!)
 ) : Container(pointer) {
     public constructor(buffer: TextBuffer) : this(gtk_text_view_new_with_buffer(buffer.self)!!, buffer)

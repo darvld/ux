@@ -7,7 +7,7 @@ import kotlinx.cinterop.reinterpret
 import kotlinx.cinterop.toKString
 
 
-public open class Button internal constructor(pointer: CPointer<GtkWidget>) : Bin(pointer) {
+public open class Button internal constructor(pointer: WidgetPtr) : Bin(pointer) {
     public constructor() : this(gtk_button_new()!!)
     public constructor(label: String? = null) : this(gtk_button_new_with_label(label)!!)
 

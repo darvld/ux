@@ -2,9 +2,10 @@
 
 package ux
 
-import libgtk.*
 import kotlinx.cinterop.*
+import libgtk.*
 
+public typealias WidgetPtr = CPointer<GtkWidget>
 internal typealias Void = COpaquePointer
 
 internal inline val Boolean.gtkValue: gboolean get() = if (this) 1 else 0

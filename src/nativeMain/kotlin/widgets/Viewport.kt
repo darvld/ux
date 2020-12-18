@@ -8,7 +8,7 @@ import kotlinx.cinterop.reinterpret
 
 
 public class Viewport internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Bin(pointer), Scrollable {
     public constructor() : this(gtk_viewport_new(null, null)!!)
     override val baseWidget: Widget by lazy { this }

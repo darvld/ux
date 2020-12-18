@@ -11,7 +11,7 @@ import kotlinx.cinterop.reinterpret
 import kotlinx.cinterop.toKString
 
 public open class TextComboBox(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : ComboBox(pointer) {
     public constructor(withEntry: Boolean = false) : this(
         if (withEntry) gtk_combo_box_text_new_with_entry()!! else gtk_combo_box_text_new()!!

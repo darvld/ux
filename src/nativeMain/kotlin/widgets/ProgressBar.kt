@@ -9,7 +9,7 @@ import kotlinx.cinterop.reinterpret
 import kotlinx.cinterop.toKString
 
 public open class ProgressBar internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Widget(pointer) {
     public constructor() : this(gtk_progress_bar_new()!!)
 

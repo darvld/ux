@@ -6,7 +6,7 @@ import kotlinx.cinterop.*
 import libgtk.*
 
 public open class Switch(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Widget(pointer) {
     public constructor() : this(gtk_switch_new()!!)
 

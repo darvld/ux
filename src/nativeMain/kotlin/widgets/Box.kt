@@ -9,7 +9,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 
-public open class Box internal constructor(pointer: CPointer<GtkWidget>) : Container(pointer) {
+public open class Box internal constructor(pointer: WidgetPtr) : Container(pointer) {
     public constructor(orientation: Orientation = Orientation.Horizontal, spacing: Int = 0) :
             this(gtk_box_new(orientation.gtkValue, spacing)!!)
 

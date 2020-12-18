@@ -9,7 +9,7 @@ import kotlinx.cinterop.reinterpret
 import kotlinx.cinterop.toKString
 
 public class HeaderBar internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Container(pointer) {
     public constructor() : this(gtk_header_bar_new()!!)
 

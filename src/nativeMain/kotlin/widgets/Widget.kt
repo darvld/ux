@@ -7,7 +7,7 @@ import kotlinx.cinterop.*
 import libgtk.*
 
 @WidgetDsl
-public open class Widget internal constructor(internal val widgetPtr: CPointer<GtkWidget>) :
+public open class Widget internal constructor(internal val widgetPtr: WidgetPtr) :
     GObjectWrapper(widgetPtr.reinterpret()) {
 
     public fun addStyleClass(name: String) {
@@ -226,6 +226,10 @@ public open class Widget internal constructor(internal val widgetPtr: CPointer<G
     ///////////////////////////////////////////////////////////////////////////
     // Methods
     ///////////////////////////////////////////////////////////////////////////
+
+    public fun destroy() {
+        gtk_widget_destroy(widgetPtr)
+    }
 
     public fun show() {
         gtk_widget_show(widgetPtr)

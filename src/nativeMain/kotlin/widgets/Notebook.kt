@@ -8,7 +8,7 @@ import kotlinx.cinterop.toKString
 import libgtk.*
 
 public class Notebook(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Container(pointer) {
     public constructor() : this(gtk_notebook_new()!!)
 

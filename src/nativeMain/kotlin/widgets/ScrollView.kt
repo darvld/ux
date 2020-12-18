@@ -8,7 +8,7 @@ import libgtk.*
 import kotlinx.cinterop.*
 
 public class ScrollView internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Bin(pointer) {
     public constructor() : this(gtk_scrolled_window_new(null, null)!!)
 

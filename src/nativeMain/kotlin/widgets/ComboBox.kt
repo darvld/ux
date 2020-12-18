@@ -7,7 +7,7 @@ import libgtk.*
 import kotlinx.cinterop.*
 
 public open class ComboBox(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Bin(pointer) {
     public constructor() : this(gtk_combo_box_new()!!)
 

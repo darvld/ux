@@ -1,11 +1,13 @@
-package widgets
+@file:Suppress("unused")
+
+package ux
 
 import kotlinx.cinterop.*
 import libgtk.*
 import ux.Pixbuf
 import ux.Widget
 
-public class Image(pointer: CPointer<GtkWidget>) : Widget(pointer) {
+public class Image(pointer: WidgetPtr) : Widget(pointer) {
     public constructor() : this(gtk_image_new()!!)
     public constructor(file: String) : this(gtk_image_new_from_file(file)!!)
     public constructor(pixbuf: Pixbuf) : this(gtk_image_new_from_pixbuf(pixbuf.cpointer)!!)

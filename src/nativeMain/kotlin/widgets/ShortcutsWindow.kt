@@ -14,7 +14,7 @@ import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.reinterpret
 
 public class ShortcutsWindow(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Window(pointer) {
     internal val self: CPointer<GtkShortcutsWindow> = pointer.reinterpret()
 
@@ -39,7 +39,7 @@ public class ShortcutsWindow(
 }
 
 public class ShortcutsSection(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Box(pointer) {
     private val self: CPointer<GtkShortcutsSection> = pointer.reinterpret()
 
@@ -50,7 +50,7 @@ public class ShortcutsSection(
 }
 
 public class ShortcutsGroup(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Box(pointer) {
     private val self: CPointer<GtkShortcutsGroup> = pointer.reinterpret()
 
@@ -59,7 +59,7 @@ public class ShortcutsGroup(
 }
 
 public class Shortcut(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Box(pointer) {
     private val self: CPointer<GtkShortcutsShortcut> = pointer.reinterpret()
 

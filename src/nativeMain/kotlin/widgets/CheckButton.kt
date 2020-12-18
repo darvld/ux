@@ -10,7 +10,7 @@ import libgtk.GtkWidget
 import libgtk.gtk_check_button_new_with_label
 
 public open class CheckButton internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : ToggleButton(pointer) {
     public constructor(label: String? = null) : this(gtk_check_button_new_with_label(label)!!)
 

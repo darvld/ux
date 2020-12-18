@@ -7,7 +7,7 @@ import libgtk.*
 import kotlinx.cinterop.*
 
 public open class Label internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Widget(pointer) {
     public constructor(text: String?) : this(gtk_label_new(text)!!)
 

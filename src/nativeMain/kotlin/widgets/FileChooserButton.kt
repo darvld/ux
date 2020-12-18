@@ -11,7 +11,7 @@ import kotlinx.cinterop.toKString
 
 
     public class FileChooserButton internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Button(pointer), FileChooser {
 
     public constructor(

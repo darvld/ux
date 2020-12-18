@@ -12,7 +12,7 @@ import libgtk.GtkWidget
 import libgtk.gtk_file_chooser_dialog_new
 
 public open class FileChooserDialog(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Dialog(pointer), FileChooser {
     public constructor(
         title: String? = null,

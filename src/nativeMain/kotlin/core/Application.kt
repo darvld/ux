@@ -168,7 +168,7 @@ public open class Application internal constructor(internal val cpointer: CPoint
         cpointer.connectSignal(
             signal = "window-added",
             handler = staticCallback1,
-            callbackWrapper = StableRef.create { pointer: CPointer<GtkWidget> ->
+            callbackWrapper = StableRef.create { pointer: WidgetPtr ->
                 callback(Window(pointer))
             }.asCPointer(),
         )
@@ -179,7 +179,7 @@ public open class Application internal constructor(internal val cpointer: CPoint
         cpointer.connectSignal(
             signal = "window-removed",
             handler = staticCallback1,
-            callbackWrapper = StableRef.create { pointer: CPointer<GtkWidget> ->
+            callbackWrapper = StableRef.create { pointer: WidgetPtr ->
                 callback(Window(pointer))
             }.asCPointer(),
         )

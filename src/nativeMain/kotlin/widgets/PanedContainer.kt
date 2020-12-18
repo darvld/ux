@@ -10,7 +10,7 @@ import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.reinterpret
 
 public open class PanedContainer(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Container(pointer) {
     public constructor(orientation: Orientation = Orientation.Horizontal) : this(gtk_paned_new(orientation.gtkValue)!!)
 

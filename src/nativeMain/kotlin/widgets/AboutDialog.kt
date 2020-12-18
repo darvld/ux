@@ -9,7 +9,7 @@ import libgtk.*
 import kotlinx.cinterop.*
 
 public open class AboutDialog(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Dialog(pointer) {
     public constructor() : this(gtk_about_dialog_new()!!)
 

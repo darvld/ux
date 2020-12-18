@@ -5,7 +5,7 @@ import libgtk.*
 
 import kotlinx.cinterop.*
 
-public open class Container internal constructor(pointer: CPointer<GtkWidget>) : Widget(pointer) {
+public open class Container internal constructor(pointer: WidgetPtr) : Widget(pointer) {
 
     private val self: CPointer<GtkContainer> = pointer.reinterpret()
 

@@ -10,7 +10,7 @@ import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.reinterpret
 
 public class TreeView(
-    pointer: CPointer<GtkWidget>,
+    pointer: WidgetPtr,
 ) : Container(pointer) {
     public constructor() : this(gtk_tree_view_new()!!)
     public constructor(model: TreeModel) : this(gtk_tree_view_new()!!){

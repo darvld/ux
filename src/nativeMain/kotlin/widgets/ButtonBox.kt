@@ -7,7 +7,7 @@ import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.convert
 import kotlinx.cinterop.reinterpret
 
-public open class ButtonBox internal constructor(pointer: CPointer<GtkWidget>) : Box(pointer) {
+public open class ButtonBox internal constructor(pointer: WidgetPtr) : Box(pointer) {
     public constructor(orientation: Orientation) : this(gtk_button_box_new(orientation.gtkValue)!!)
 
     private val self: CPointer<GtkButtonBox> = pointer.reinterpret()

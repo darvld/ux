@@ -8,7 +8,7 @@ import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.reinterpret
 
 public open class Dialog internal constructor(
-    pointer: CPointer<GtkWidget>
+    pointer: WidgetPtr
 ) : Window(pointer) {
     public constructor() : this(gtk_dialog_new()!!)
 

@@ -7,7 +7,7 @@ import kotlinx.cinterop.*
 
 /**A [Window] is a top-level widget which can contain other widgets. Windows normally have decorations that are under
  *  the control of the windowing system and allow the user to manipulate the window (resize it, move it, close it,...).*/
-public open class Window internal constructor(pointer: CPointer<GtkWidget>) : Bin(pointer) {
+public open class Window internal constructor(pointer: WidgetPtr) : Bin(pointer) {
     public constructor() : this(gtk_window_new(GtkWindowType.GTK_WINDOW_TOPLEVEL)!!)
 
     private val self: CPointer<GtkWindow> = pointer.reinterpret()

@@ -8,7 +8,7 @@ import kotlinx.cinterop.reinterpret
 
 
 
-public open class ApplicationWindow internal constructor(pointer: CPointer<GtkWidget>) : Window(pointer) {
+public open class ApplicationWindow internal constructor(pointer: WidgetPtr) : Window(pointer) {
     public constructor(app: Application) : this(gtk_application_window_new(app.cpointer)!!)
 
     private val self: CPointer<GtkApplicationWindow> = pointer.reinterpret()
