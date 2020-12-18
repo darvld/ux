@@ -2,46 +2,57 @@
 
 package ux
 
+public class AdapterList<T> {
+    public val items: MutableList<ViewHolder<T>> = mutableListOf()
+
+    public inline operator fun get(index: Int): T {
+        return items[index].item
+    }
+
+    public inline operator fun set(index: Int, value: T) {
+        items[index].bind(value)
+    }
+
+    public inline fun modify(index: Int, op: T.() -> Unit) {
+        items[index].apply {
+            bind(item.apply(op))
+        }
+    }
+
+    public inline operator fun iterator(): MutableIterator<ViewHolder<T>> = items.iterator()
+}
+
 public abstract class ListBoxAdapter<T>(protected val listBox: ListBox) {
-    protected val items: MutableMap<T, ViewHolder<T>> = mutableMapOf()
+    public val rows: AdapterList<T> = AdapterList()
 
     protected abstract fun createRow(): ViewHolder<T>
 
     public fun add(item: T) {
-        items.getOrPut(item) {
-            createRow().also {
-                it.init(listBox)
-                it.bind(item)
-            }
+        createRow().also {
+            it.init(listBox)
+            it.bind(item)
+            rows.items.add(it)
         }
     }
 
-    public fun addAll(vararg items: T) {
-        for (item in items) add(item)
+    public fun remove(row: ViewHolder<T>) {
+        rows.items.remove(row)
+        row.destroy()
     }
 
     public fun remove(item: T) {
-        items.remove(item)?.destroy()
+        val index = rows.items.indexOfFirst { it.item == item }
+        remove(index)
     }
 
-    public fun removeAll(vararg items: T) {
-        for (item in items) remove(item)
+    public fun remove(index: Int) {
+        rows.items[index].destroy()
+        rows.items.removeAt(index)
     }
 
-    public fun modify(item: T, op: T.() -> Unit) {
-        val holder = items[item] ?: throw Exception("Modified item must be added to this adapter first")
-        item.apply(op)
-        holder.bind(item)
-    }
-
-    public fun modify(index: Int, op: T.() -> Unit) {
-        for ((i, key) in items.keys.withIndex()) {
-            if (i != index)
-                continue
-
-            key.op()
-            items[key]!!.bind(key)
-            break
+    public fun clear() {
+        for (row in rows) {
+            remove(row)
         }
     }
 }

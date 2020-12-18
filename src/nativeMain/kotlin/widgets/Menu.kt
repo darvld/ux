@@ -7,8 +7,11 @@ import kotlinx.cinterop.toKString
 import libgtk.*
 import ux.*
 
-public inline fun menu(op: Menu.() -> Unit): Menu {
-    return Menu().apply(op)
+public inline fun Widget.menu(op: Menu.() -> Unit = {}): Menu {
+    return Menu().apply {
+        op()
+        attachTo(this@menu)
+    }
 }
 
 public abstract class MenuShell(widgetPtr: WidgetPtr) : Container(widgetPtr) {
@@ -68,11 +71,13 @@ public class Menu(widgetPtr: WidgetPtr) : MenuShell(widgetPtr) {
 
     private val self: CPointer<GtkMenu> = widgetPtr.reinterpret()
 
-    public inline fun item(label: String? = null, setup: MenuItem.() -> Unit) {
+    public inline fun item(label: String? = null, setup: MenuItem.() -> Unit = {}): MenuItem {
         val mItem = label?.let { MenuItem(it) } ?: MenuItem()
         mItem.apply(setup)
         append(mItem)
         mItem.show()
+
+        return mItem
     }
 
     public fun reorderChild(child: Widget, position: Int) {
