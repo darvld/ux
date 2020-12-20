@@ -1,11 +1,10 @@
-package widgets
+package ux
 
 import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.StableRef
 import kotlinx.cinterop.reinterpret
 import kotlinx.cinterop.toKString
 import libgtk.*
-import ux.*
 
 public inline fun Widget.menu(op: Menu.() -> Unit = {}): Menu {
     return Menu().apply {
